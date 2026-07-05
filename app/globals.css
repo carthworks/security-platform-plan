@@ -2495,3 +2495,28 @@ body, .nav, .nav-logo, .nav-links a, .user-bar, .mcard, .phase-tabs, .ptb, .spri
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Boardroom / CISO Present Mode Overrides (FR-UI-08) */
+body.present-mode {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+body.present-mode .nav {
+  display: none !important;
+}
+
+body.present-mode .user-bar {
+  display: none !important;
+}
+
+body.present-mode .footer {
+  display: none !important;
+}
+
+body.present-mode main.page {
+  padding: 2rem !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+}
+
+

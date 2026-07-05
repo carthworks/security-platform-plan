@@ -255,6 +255,44 @@ export default function SettingsPage() {
                   </div>
                 </div>
               </div>
+
+              <div className="login-field">
+                <label style={{ fontSize: 11, fontWeight: 500, color: 'var(--color-text-secondary)', display: 'block', marginBottom: 6 }}>Security Posture Target Score (0-100)</label>
+                <div className="login-input-wrap">
+                  <i className="ti ti-target" />
+                  <input
+                    type="number"
+                    disabled={!isAdmin}
+                    min="1"
+                    max="100"
+                    value={formData.postureTarget || 85}
+                    onChange={(e) => handleChange('postureTarget', parseInt(e.target.value, 10) || 85)}
+                    required
+                  />
+                </div>
+                <span style={{ fontSize: 10, color: 'var(--color-text-tertiary)', marginTop: 4, display: 'block' }}>
+                  The benchmark threshold used in CISO reports to indicate compliance against targeted baseline posture.
+                </span>
+              </div>
+
+              <div className="login-field">
+                <label style={{ fontSize: 11, fontWeight: 500, color: 'var(--color-text-secondary)', display: 'block', marginBottom: 8 }}>Executive View Present Theme</label>
+                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                  {[
+                    { theme: 'dark', label: 'Boardroom Dark', sub: 'Premium pitch-black palette', icon: 'ti-moon' },
+                    { theme: 'light', label: 'Executive Light', sub: 'High-contrast clean view', icon: 'ti-sun' }
+                  ].map((item) => (
+                    <SelectCard
+                      key={item.theme}
+                      active={formData.executiveTheme === item.theme}
+                      title={item.label}
+                      subtitle={item.sub}
+                      icon={item.icon}
+                      onClick={() => handleChange('executiveTheme', item.theme)}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
@@ -303,7 +341,7 @@ export default function SettingsPage() {
                 <i className="ti ti-git-branch" style={{ color: 'var(--tf-orange)' }} /> Jira, Slack & GitHub Integrations
               </h3>
 
-              <div style={{ borderBottom: '1px solid var(--color-border-tertiary)', pb: 16, display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <div style={{ borderBottom: '1px solid var(--color-border-tertiary)', paddingBottom: 16, display: 'flex', flexDirection: 'column', gap: 12 }}>
                 <h4 style={{ fontSize: 12, fontWeight: 600, color: 'var(--color-text-primary)', margin: 0 }}>Jira Configuration (FR-OUT-01)</h4>
                 
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -365,7 +403,7 @@ export default function SettingsPage() {
                 </div>
               </div>
 
-              <div style={{ borderBottom: '1px solid var(--color-border-tertiary)', pb: 16, display: 'flex', flexDirection: 'column', gap: 12, marginTop: 8 }}>
+              <div style={{ borderBottom: '1px solid var(--color-border-tertiary)', paddingBottom: 16, display: 'flex', flexDirection: 'column', gap: 12, marginTop: 8 }}>
                 <h4 style={{ fontSize: 12, fontWeight: 600, color: 'var(--color-text-primary)', margin: 0 }}>Slack Webhook Configuration (FR-OUT-02)</h4>
                 
                 <div className="login-field">

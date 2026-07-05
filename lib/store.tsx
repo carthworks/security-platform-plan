@@ -36,6 +36,8 @@ export interface PlatformSettings {
   dpdpEnabled: boolean;
   soc2Enabled: boolean;
   activeTier: 'free' | 'starter' | 'pro' | 'enterprise';
+  executiveTheme: 'dark' | 'light';
+  postureTarget: number;
 }
 
 export interface SprintProgress {
@@ -68,6 +70,8 @@ export const DEFAULT_SETTINGS: PlatformSettings = {
   dpdpEnabled: true,
   soc2Enabled: false,
   activeTier: 'starter',
+  executiveTheme: 'dark',
+  postureTarget: 85,
 };
 
 const DEFAULT_PROGRESS: SprintProgress = {
