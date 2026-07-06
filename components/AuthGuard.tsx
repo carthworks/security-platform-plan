@@ -10,7 +10,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isLoading && !user && pathname !== '/login') {
+    if (!isLoading && !user && pathname !== '/login' && pathname !== '/') {
       router.replace('/login');
     }
   }, [user, isLoading, pathname, router]);
@@ -33,8 +33,8 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
     );
   }
 
-  // If on login page, don't show navbar/footer
-  if (pathname === '/login') {
+  // If on login or landing page, don't wrap with dashboard guards
+  if (pathname === '/login' || pathname === '/') {
     return <>{children}</>;
   }
 

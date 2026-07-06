@@ -11,9 +11,9 @@ import { ToastProvider } from '@/components/Toast';
 
 function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isLogin = pathname === '/login';
+  const isPublicRoute = pathname === '/login' || pathname === '/';
 
-  if (isLogin) return <>{children}</>;
+  if (isPublicRoute) return <>{children}</>;
 
   return (
     <>
@@ -21,7 +21,7 @@ function AppShell({ children }: { children: React.ReactNode }) {
       <UserBar />
       {children}
       <footer className="footer">
-        <p>© 2025 securityPlatform · India&apos;s multi-disciplinary talent verification platform</p>
+        <p>© 2025 securityPlatform · Project Management & Build Tracker</p>
       </footer>
     </>
   );
